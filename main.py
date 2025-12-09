@@ -4,13 +4,9 @@ from PIL import Image, ImageTk
 from image_generator import ImageGenerator
 
 def main():
-    folder_path = r"C:\Users\teodo\Documents\Protiect Python 19"  # folder cu imaginile tale PNG
+    folder_path = r"C:\Users\teodo\Documents\Protiect Python 19"
     img_gen = ImageGenerator(folder_path)
     pairs = img_gen.generate_pairs()
-
-    if not pairs:
-        print("Nu există imagini de afișat.")
-        return
 
     root = tk.Tk()
     root.title("Joc simplu de memorie")
@@ -20,7 +16,7 @@ def main():
 
     for idx, card in enumerate(pairs):
         img = Image.open(card["image_path"])
-        img = img.resize((160, 90))  # redimensionare opțională
+        img = img.resize((160, 90))
         photo = ImageTk.PhotoImage(img)
         photo_images.append(photo)
 
