@@ -6,12 +6,15 @@ def main():
     img_gen = ImageGenerator("images")
     pairs = img_gen.generate_pairs()
 
+    if not pairs:
+        print("Nu există imagini de afișat. Creează folderul 'images' și adaugă imagini PNG.")
+        return
+
     root = tk.Tk()
     root.title("Joc simplu de memorie")
 
     rows = 4
     cols = 3
-
     photo_images = []
 
     for idx, card in enumerate(pairs):
@@ -24,7 +27,6 @@ def main():
         label.grid(row=idx // cols, column=idx % cols, padx=5, pady=5)
 
     root.mainloop()
-
 
 if __name__ == "__main__":
     main()
