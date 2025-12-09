@@ -44,3 +44,4 @@ class ImageGenerator:
         images = self.load_images()
         random.shuffle(images)
         return images
+
